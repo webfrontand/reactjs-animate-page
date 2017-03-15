@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class App extends Component {
   constructor(){
@@ -30,14 +31,20 @@ class App extends Component {
       <div>
         <h1 onClick={this.onAddItem.bind(this)}>ADD ITEM</h1>
         <ul>
-          {this.state.items.map((item, i) => {
-            return (
-              <li key={item} onClick={this.onDeleteItem.bind(this, i)}>
-                {item}
-              </li>
-            )
-          })}
-
+          <ReactCSSTransitionGroup
+            transitionName="flip"
+            transitionEnter={300}
+            transitionLeave={300}
+            transitionAppear={true}
+            transitionAppearTimeout={1000}>
+            {this.state.items.map((item, i) => {
+              return (
+                <li key={item} onClick={this.onDeleteItem.bind(this, i)}>
+                  {item}
+                </li>
+              )
+            })}
+          </ReactCSSTransitionGroup>
         </ul>
       </div>
     );

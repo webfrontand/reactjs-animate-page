@@ -1,0 +1,27 @@
+.slide {
+  animation: slide 1s ease-in forwards;
+}
+
+.flip {
+  animation: flip 2s ease-out alternate 2;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(80px);
+  }
+}
+
+@keyframes flip {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(180deg);
+  }
+}

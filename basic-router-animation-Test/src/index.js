@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
+// style sheet
 import './styles/index.css';
 import './styles/navigation.css';
+import './styles/animation.css';
 
 import { Router, browserHistory } from 'react-router';
 

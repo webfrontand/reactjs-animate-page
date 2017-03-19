@@ -2,11 +2,15 @@ import Home from './Page/Home';
 import About from './Page/About';
 import Products from './Page/Products';
 
-import Html from './Document/Html';
-import Node from './Document/Node';
-import Css from './Document/Css';
+import Html from './About/Html';
+import Node from './About/Node';
+import Css from './About/Css';
 
 import Header from './Header/Header';
+
+import Button from './Input/Button';
+
+import Modal from './Window/Modal';
 
 export {
   Home,
@@ -15,5 +19,7 @@ export {
   Header,
   Html,
   Node,
-  Css
+  Css,
+  Button,
+  Modal
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { Button } from '../';
 
 class Header extends Component {
   render(){
@@ -14,6 +15,9 @@ class Header extends Component {
           </li>
           <li>
             <Link to="/products">Products</Link>
+          </li>
+          <li className="right">
+            <Button openModal={this.props.openModal} name="Click Me!" />
           </li>
         </ul>
       </nav>

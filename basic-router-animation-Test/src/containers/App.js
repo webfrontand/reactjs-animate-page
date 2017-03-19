@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header } from '../components';
 import { Modal } from '../components';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class App extends Component {
   constructor(props){
@@ -24,11 +25,17 @@ class App extends Component {
   }
 
   render() {
+    const path = this.props.location.pathname;
+    var segment = path.split('/')[1] || 'root';
+
     return (
       <div>
         <Header openModal={this.openModal}/>
         <div className="routesBox">
-          {this.props.children}
+          <ReactCSSTransitionGroup component='div' transitionName={segment === 'root' ? 'reversePageSwap' : 'pageSwap'}
+          transitionEnterTimeout={600} transitionLeaveTimeout={600}>
+            {React.cloneElement(this.props.children, { key: segment })}
+          </ReactCSSTransitionGroup>
         </div>
         <Modal isModalOpen={this.state.isModalOpen} closeModal={this.closeModal}>
           <h1>Modal Title</h1>
